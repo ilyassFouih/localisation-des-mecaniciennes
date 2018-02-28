@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>inscription </title>
+	<link rel="stylesheet" type="text/css" href="css/styleInscription.css">
+</head>
+<body >
+<form action="inscription.php" method="GET">
+		<div class="errors">
+			{foreach $errors as $val}
+     			<p>{ $val }</p>;
+   			 {/foreach}
+		</div>
+		<input type="email" name="email" placeholder="email" class="input"><br>
+		<input type="text" name="nom" placeholder="nom" class="input"><br>
+		<input type="text" name="prenom" placeholder="prenom" class="input"><br>
+		<input type="text" name="age" placeholder="age" class="input"><br>
+		<input type="text" name="tel" placeholder="tel" class="input"><br>
+		<!-- <input type="text" name="lat" placeholder="latitude" class="input"><br>
+		<input type="text" name="lng" placeholder="longitude" class="input"><br> -->
+		<input type="text" name="adresse" placeholder="adresse" class="input"><br>
+		<input type="password" name="password" placeholder="password" class="input"><br>
+		<input type="password" name="retaperPassword" placeholder="retaperPassword" class="input"><br>
+		<input type="submit" name="btn_valider_inscription" value="valider votre inscription" class="btn_valider_inscription"><br>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,93 @@
+body{
+	background-image: url(../images/image2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	 margin: 0px;
+}form{
+	box-shadow: 0px 0px 20px;
+	/*width:250px;
+	
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-left: 500px;
+	margin-top: 100px;*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 300px;
+	height: 450px; 
+	
+	padding: 80px 40px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,.5);
+
+}.btnSeConnecter{
+	float: left;
+	font-size: 15px
+	border-radius:5px;
+	padding: 10px 60px 10px 70px;
+	margin-left: 15px;
+	border: none;
+	box-shadow: 0px 0px 5px black;
+	background-color:#9CCC65;
+	cursor :pointer;
+	margin-top: 20px;
+	margin-left:10px;
+
+
+
+}.input{
+	border: 2px solid black ;
+	background: none; float: left;
+	width: 200px;height: 20px;
+	padding-left: 5px;
+	margin-left: 6px;
+
+
+}
+::placeholder
+{
+	color: rgba(255,255,255,.5);
+}
+.inscrire{
+	margin-top: 20px;
+	margin-left: 180px;
+	color: #fff;
+	font-weight: bold;
+
+
+}h2{
+	margin: 0;
+	color: #9CCC65;
+	text-align: center;
+}.errors{
+   width: 92%; 
+  margin: 0px auto; 
+  padding: 10px; 
+  border: 1px solid #a94442; 
+  color: #a94442; 
+  background: #f2dede; 
+  border-radius: 5px; 
+  text-align: left;
+  transform: translate(-50%,-50%);
+}.recherche_rapide{
+	float: left;
+	font-size: 15px
+	border-radius:5px;
+	padding: 10px 40px 10px 40px;
+	margin-left: 15px;
+	margin-top: 100px;
+	border: none;
+	box-shadow: 0px 0px 5px black;
+	background-color:#9CCC65;
+	cursor :pointer;
+	margin-top: 20px;
+	margin-left:10px;
+
+}
+.oubien{
+	color: white;
+	font: color white;
+}

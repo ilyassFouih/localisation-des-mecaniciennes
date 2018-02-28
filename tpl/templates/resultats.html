@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <link rel="stylesheet" type="text/css" href="css/styleHome.css">
+	 
+	 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+   <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+         function initialiser() {
+
+              
+            var pinImage = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+             $(function(){
+                          
+                              $(".maPlace").click(function(event){
+                             /*   ----------recupere id -----------*/
+                                 var id=event.target.id;
+                                  var arrayOfid = id.split(",");
+                            /*-----------afficher de le carte  ------- */
+                                 var latlng = new google.maps.LatLng(arrayOfid[0], arrayOfid[1]);
+                                  var options = {
+                                    center: latlng,
+                                    zoom: 12,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                  };
+                                  var carte = new google.maps.Map(document.getElementById("carte"), options);
+                              /* -------creation de marqueur de la position d utilisateur -------------*/
+                                     var marqueur = new google.maps.Marker({
+                                      position: new google.maps.LatLng(arrayOfid[0],arrayOfid[1]),
+                                      map: carte,
+                                      icon :pinImage
+                                        });
+                                    /*----------------affichage des autres mecanicienne-------------------*/
+                                      $(".afficherMarque").click(function(event){
+                                 var id=event.target.id;
+                                  var arrayOfid = id.split(",");
+                                  
+                                  //création du marqueur
+                                     var marqueur = new google.maps.Marker({
+                                      position: new google.maps.LatLng(arrayOfid[0],arrayOfid[1]),
+                                      map: carte,
+                                      animation: google.maps.Animation.BOUNCE,
+                                     // icon :pinImage
+                                        });
+                                     
+                                     
+                                    });
+                                     
+                              });
+                 });
+
+             }
+    </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApqriQMDOD60U1x-EFIUE_X1kTj4jpbM0&callback=myMap"></script>
+</head>
+<body onload="initialiser()">
+
+	<h1 style="color: white;">la listes des mecanicienne les plus proches a votre position :</h1>
+	<table border="1" class="blueTable" >
+	 <thead>
+	     <tr>
+	       <th>email</th><th>nom et prenom</th><th>tel</th><th>cliquer pour afficher dans la carte </th>
+	     </tr>
+    </thead>
+	 {foreach $lignes as $email=>$ligne}
+      <tr>
+        <td>{$ligne['email']}</td>
+        <td>{$ligne['prenom']} {$ligne['nom']}</td>
+        <td>{$ligne['tel']}</td> 
+        <td><input type="button" id="{$ligne['lat']},{$ligne['lng']}" class="afficherMarque" value="ajouter un marqueur"></td>
+      </tr>
+    {/foreach}
+
+</table>
+<input type="button" id="{$lat},{$lng}" class="maPlace" value="afficher la carte avec ma position">
+<div id="carte" style="width:100%;height:400px; "  class="carte"></div>
+</body>
+</html>

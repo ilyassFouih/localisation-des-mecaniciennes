@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>HOME</title>
+	<link rel="stylesheet" type="text/css" href="css/styleHome.css">
+</head>
+<body>
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='appelHome.php'>Home</a></li>
+   <li><a href='appelchercherMeca.php'>chercher un mecaniciene </a></li>
+ 
+   <li><a href='appelLogin.php'>deconexioner</a></li>
+</ul>
+</div>
+<div id="welcome"><h1> {$bonjour} {$nom} {$prenom} </h1></div>
+<form action="rechercheRapide.php" method="POST">
+</form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	#navbarX{
+  		background-color: #9CCC65;
+  	}
+  	ul li{
+  		color: white;
+
+
+  	}
+  	
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" id="navbarX">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" ><font color="white"> Trouver Mécanicien</font></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href='appelHome.php'><font color="white">Home</font></a></li>
+      </li>
+      <li><a href='appelchercherMeca.php'><font color="white">les mecaniciens les plus proches</font></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="appelLogin.php"><span class="glyphicon glyphicon-log-in"></span>
+      	<font color="white"> déconnexion</font></a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <h3>{$bonjour} {$nom} {$prenom} </h3>
+</div>
+
+</body>
+</html>

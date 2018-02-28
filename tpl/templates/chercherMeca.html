@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+	<title>chercher mecanicienne </title>
+  <link rel="stylesheet" type="text/css" href="css/styleHome.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+   <script type="text/javascript" src="js/jquery.js"></script>
+   <style type="text/css">
+    #navbarX{
+      background-color: #9CCC65;
+    }
+    ul li{
+      color: white;
+
+
+    }
+    
+  </style>
+    <script type="text/javascript">
+         function initialiser() {
+
+              
+            var pinImage = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+             $(function(){
+                          
+                              $(".maPlace").click(function(event){
+                             /*   ----------recupere id -----------*/
+                                 var id=event.target.id;
+                                  var arrayOfid = id.split(",");
+                            /*-----------afficher de le carte  ------- */
+                                 var latlng = new google.maps.LatLng(arrayOfid[0], arrayOfid[1]);
+                                  var options = {
+                                    center: latlng,
+                                    zoom: 12,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                  };
+                                  var carte = new google.maps.Map(document.getElementById("carte"), options);
+                              /* -------creation de marqueur de la position d utilisateur -------------*/
+                                     var marqueur = new google.maps.Marker({
+                                      position: new google.maps.LatLng(arrayOfid[0],arrayOfid[1]),
+                                      map: carte,
+                                      icon :pinImage
+                                        });
+                                    /*----------------affichage des autres mecanicienne-------------------*/
+                                      $(".afficherMarque").click(function(event){
+                                 var id=event.target.id;
+                                  var arrayOfid = id.split(",");
+                                  
+                                  //création du marqueur
+                                     var marqueur = new google.maps.Marker({
+                                      position: new google.maps.LatLng(arrayOfid[0],arrayOfid[1]),
+                                      map: carte,
+                                      animation: google.maps.Animation.BOUNCE,
+                                     // icon :pinImage
+                                        });
+                                     
+                                     
+                                    });
+                                     
+                              });
+                 });
+
+             }
+    </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApqriQMDOD60U1x-EFIUE_X1kTj4jpbM0&callback=myMap"></script>
+</head>
+<body onload="initialiser()">
+<!-- <div id='cssmenu'>
+<ul>
+   <li class='active'><a href='appelHome.php'>Home</a></li>
+   <li><a href='appelchercherMeca.php'>chercher un mecaniciene </a></li>
+   <li><a href='appelVoirProfile.php'>voir profile</a></li>
+   <li><a href='#'>modifier profile</a></li>
+   <li class='dec'><a href='appelLogin.php'>deconexioner</a></li>
+</ul>
+</div>
+<br>
+<h1 style="color: #FFFFFF;">la listes des mecanicienne les plus proches a votre position :</h1> -->
+<nav class="navbar navbar-inverse" id="navbarX">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" ><font color="white"> Trouver Mécanicien</font></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href='appelHome.php'><font color="white">Home</font></a></li>
+      </li>
+      <li><a href='appelchercherMeca.php'><font color="white">les mecaniciens les plus proches</font></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="appelLogin.php"><span class="glyphicon glyphicon-log-in"></span>
+        <font color="white"> déconnexion</font></a></li>
+    </ul>
+  </div>
+</nav>
+<table border="1" class="blueTable" >
+    <thead>
+     <tr>
+       <th>email</th><th>nom et prenom</th><th>tel</th><th>afficher un marqeur</th>
+     </tr>
+    </thead>
+    {foreach $lignes as $email=>$ligne}
+      <tr>
+        <td>{$ligne['email']}</td>
+        <td>{$ligne['prenom']} {$ligne['nom']}</td>
+        <td>{$ligne['tel']}</td> 
+        <td><input type="button" id="{$ligne['lat']},{$ligne['lng']}" class="afficherMarque" value="afficher un marqueur"></td>
+      </tr>
+    {/foreach}
+      
+  </table>
+<input type="button" id="{$lat},{$lng}" class="maPlace" value="afficher la carte avec ma position">
+<div id="carte" style="width:100%;height:400px; "  class="carte"></div>
+
+
+ 
+</body>
+</html>

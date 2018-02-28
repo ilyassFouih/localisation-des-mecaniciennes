@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trouver votre mecanique </title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	
+	
+
+	<form action="login.php" method="GET" >
+
+			<h2>veuillez vous connecter</h2><br>
+			<br>
+				{foreach $errors as $ligne }
+				<div class="errors">
+				{$ligne }
+					</div>
+				{/foreach}
+		
+			<input type="text" name="email" placeholder="email" class="input"><br>
+			<br>
+			<input type="password" name="password" placeholder="mot de passe" class="input"><br>
+			<input type="submit" name="btnSeConnecter" class="btnSeConnecter" value="se connecter"><br><br>
+			<a href="appelInscription.php" class="inscrire"><strong>s'inscrire</strong></a>
+			<br>
+			<br>
+			<div class="oubien" >__________ou bien __________</div> 
+			<input type="submit" class="recherche_rapide" name="recherche_rapide" value="une recherche rapide">
+	</form>
+
+</body>
+</html>
